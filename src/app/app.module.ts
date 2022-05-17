@@ -10,7 +10,6 @@ import { MediaItemFormComponent } from "./media-item-form.component";
 
 import { MediaItemService } from "./media-item.service";
 
-
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule],
   declarations: [
