@@ -8,6 +8,12 @@ import { FavoriteDirective } from './favorite.directive';
 import { CategoryListPipe } from './category-list.pipe';
 import { MediaItemFormComponent } from './media-item-form.component';
 
+const lookUpLists = {
+  mediums: ['Movies', 'Series']
+}
+
+// using value providers
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -20,6 +26,12 @@ import { MediaItemFormComponent } from './media-item-form.component';
     FavoriteDirective,
     CategoryListPipe,
     MediaItemFormComponent
+  ],
+  providers: [
+    {
+      provide: 'LookupListToken',
+      useValue: lookUpLists
+    }
   ],
   bootstrap: [
     AppComponent
