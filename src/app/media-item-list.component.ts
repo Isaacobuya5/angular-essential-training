@@ -1,18 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { MediaItemService } from './media-item.service';
+import { Component, OnInit } from "@angular/core";
+import { MediaItemService } from "./media-item.service";
 
 @Component({
-  selector: 'mw-media-item-list',
-  templateUrl: './media-item-list.component.html',
-  styleUrls: ['./media-item-list.component.css']
+  selector: "mw-media-item-list",
+  templateUrl: "./media-item-list.component.html",
+  styleUrls: ["./media-item-list.component.css"],
 })
 export class MediaItemListComponent implements OnInit {
   mediaItems;
+  medium = "";
 
   constructor(private mediaItemService: MediaItemService) {}
 
   ngOnInit() {
-    this.mediaItems = this.mediaItemService.get();
+    this.mediaItemService.get().subscribe((mediaItems) => {
+      this.mediaItems = mediaItems;
+    });
+  }
+
+  getMediumItems(medium: string) {
+    this.medium = medium;
   }
 
   onMediaItemDelete(mediaItem) {
